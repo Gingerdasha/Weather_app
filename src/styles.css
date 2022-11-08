@@ -41,9 +41,8 @@ li {
   text-align: center;
 }
 .icon {
-  font-size: 64px;
-  line-height: 1;
-  margin: 10px;
+  margin: 10px 10px 0 0;
+  vertical-align: top;
 }
 .temperature {
   color: #393e46;
