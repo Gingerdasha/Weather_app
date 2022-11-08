@@ -68,3 +68,8 @@ a {
   text-align: center;
   font-size: 13px;
 }
+
+.col-6 .active {
+  color: #393e46;
+  cursor: default;
+}
