@@ -21,6 +21,9 @@ li {
   line-height: 3;
   list-style: none;
 }
+a {
+  text-decoration: none;
+}
 .weather-app {
   border: 1px solid #d6d6d6;
   padding: 15px;

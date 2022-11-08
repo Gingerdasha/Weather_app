@@ -47,6 +47,7 @@ function displayWeatherCondition(response) {
   document
     .querySelector("#icon-name")
     .setAttribute("alt", response.data.weather[0].description);
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -73,16 +74,29 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
-}
+// function convertToFahrenheit(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#temperature");
+//   temperatureElement.innerHTML = 66;
+// }
 
-function convertToCelsius(event) {
+// function convertToCelsius(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#temperature");
+//   temperatureElement.innerHTML = 19;
+// }
+
+function displayFahrenheitTemperature(event) {
   event.preventDefault();
+
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let dateElement = document.querySelector("#date");
@@ -94,5 +108,13 @@ searchForm.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let celsiusTemperature = null;
+
+let fahrenheitData = document.querySelector("#fahrenheit-data");
+fahrenheitData.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusData = document.querySelector("#celsius-data");
+celsiusData.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Kyiv");
