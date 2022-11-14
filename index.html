@@ -16,7 +16,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
+      <div class="weather-app" id="weather-app">
         <div class="header">
           <form class="search-form" id="search-form">
             <div class="row">
@@ -76,14 +76,21 @@
             </ul>
           </div>
         </div>
-        <div class="row footer">
-          <div class="col"><span class="weekdays">Tue🌥</span></div>
-          <div class="col"><span class="weekdays">Wed🌧</span></div>
-          <div class="col"><span class="weekdays">Thu🌥</span></div>
-          <div class="col"><span class="weekdays">Fri⛈</span></div>
-          <div class="col"><span class="weekdays">Sat🌤</span></div>
-          <div class="col"><span class="weekdays">Sun☀️</span></div>
-          <div class="col"><span class="weekdays">Mon🌤</span></div>
+        <div class="weather-forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="forecast-date">Thu</div>
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt=""
+                width="43"
+              />
+              <div class="forecast-temperatures">
+                <span class="forecast-day">18°</span>
+                <span class="forecast-night">12°</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <p class="link">
