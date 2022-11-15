@@ -22,6 +22,38 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
+//
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="forecast-date">${day}</div>
+        <img
+          src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+          alt=""
+          width="43"
+        />
+        <div class="forecast-temperatures">
+          <span class="forecast-day"> 18° </span>
+          <span class="forecast-night"> 12° </span>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+//
 
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -109,3 +141,4 @@ let celsiusData = document.querySelector("#celsius-data");
 celsiusData.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Kyiv");
+displayForecast();

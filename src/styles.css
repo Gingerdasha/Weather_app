@@ -75,7 +75,8 @@ a {
 }
 
 .weather-forecast {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
   display: block;
   text-align: center;
 }
