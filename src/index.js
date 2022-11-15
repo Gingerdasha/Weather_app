@@ -32,26 +32,25 @@ function getForecast(coordinates) {
 //
 
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
       <div class="col-2">
-        <div class="forecast-date">${day}</div>
+        <div class="forecast-date">${forecastDay.dt}</div>
         <img
-          src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+          src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
           alt=""
           width="43"
         />
         <div class="forecast-temperatures">
-          <span class="forecast-day"> 18° </span>
-          <span class="forecast-night"> 12° </span>
+          <span class="forecast-day"> ${forecastDay.temp.max}° </span>
+          <span class="forecast-night"> ${forecastDay.temp.min}° </span>
         </div>
       </div>
   `;
@@ -151,4 +150,3 @@ let celsiusData = document.querySelector("#celsius-data");
 celsiusData.addEventListener("click", displayCelsiusTemperature);
 
 searchCity("Kyiv");
-displayForecast();
